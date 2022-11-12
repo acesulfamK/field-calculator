@@ -1,4 +1,4 @@
-# polynomial-calculator
+# polynomial.c
 
 ```c
 struct polynomial {
@@ -17,32 +17,18 @@ struct polynomial poly_residue(struct polynomial y,struct polynomial x); // y/x�
 void print_poly(struct polynomial x); // 多項式を数列の形で出力する。
 ```
 
-# rational-calculator
+# rational.h
 
-## struct ratinoal x
+有理数の計算をするライブラリ
 
-有理数を定義している型。分子は x.num、分母は x.den である。
-
-## rational_add();
-
-足し算
-
-## rational_sub();
-
-引き算
-
-## rational_mul();
-
-掛け算
-
-## rational_div();
-
-割り算
-
-## int rational_eq(struct rational x,struct rational y)
-
-等しいかを比較する。
-
-## int rational_reduction(struct rational,struct rational y)
-
-約分を行う。ユークリッドの互除法を用いている。
+```c
+// rational io
+void print_rational(struct rational x); // 有理数を定義している型。分子は x.num、分母は x.den である。
+// rational calc
+int rational_eq(struct rational x,struct rational y); // 等しいければ0,そうでなければ1を返す
+struct rational rational_add(struct rational x,struct rational y); // 足し算
+struct rational rational_sub(struct rational x,struct rational y); // 引き算
+struct rational rational_div(struct rational x,struct rational y); //掛け算
+struct rational rational_mul(struct rational x,struct rational y); // 割り算
+struct rational rational_reduction(struct rational x); // 約分を行う (コードはユークリッドの互除法)
+```
